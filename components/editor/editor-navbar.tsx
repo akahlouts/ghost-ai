@@ -1,5 +1,6 @@
 "use client";
 
+import { UserButton } from "@clerk/nextjs";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,9 @@ export function EditorNavbar({
   onSidebarToggle,
 }: EditorNavbarProps) {
   const SidebarIcon = isSidebarOpen ? PanelLeftClose : PanelLeftOpen;
-  const sidebarAction = isSidebarOpen ? "Close projects sidebar" : "Open projects sidebar";
+  const sidebarAction = isSidebarOpen
+    ? "Close projects sidebar"
+    : "Open projects sidebar";
 
   return (
     <header className="grid h-14 shrink-0 grid-cols-[1fr_auto_1fr] items-center border-b border-surface-border bg-surface px-4">
@@ -29,7 +32,9 @@ export function EditorNavbar({
         </Button>
       </div>
       <div aria-hidden="true" />
-      <div aria-hidden="true" className="justify-self-end" />
+      <div className="justify-self-end">
+        <UserButton />
+      </div>
     </header>
   );
 }
